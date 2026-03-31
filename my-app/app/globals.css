@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-inter: "Aptos", "Inter", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-jetbrains-mono: "Cascadia Code", "JetBrains Mono", "SFMono-Regular", "Consolas", monospace;
+
+  --background: #f4efe5;
+  --foreground: #111827;
+
+  --card: #fffdf8;
+  --card-foreground: #111827;
+
+  --primary: #10233f;
+  --primary-foreground: #f8fafc;
+
+  --muted: #ece4d3;
+  --muted-foreground: #6b7280;
+
+  --border: #d8cfbe;
+  --accent: #2f5d8a;
+  --accent-foreground: #f8fafc;
+}
+
+:root.dark,
+[data-theme="dark"] {
+  --background: #0d1424;
+  --foreground: #e5ecf6;
+
+  --card: #111a2d;
+  --card-foreground: #e5ecf6;
+
+  --primary: #d7e3f5;
+  --primary-foreground: #0d1424;
+
+  --muted: #162136;
+  --muted-foreground: #9aa8bf;
+
+  --border: #24324a;
+  --accent: #8db7ff;
+  --accent-foreground: #08111f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgb(47 93 138 / 0.15), transparent 32%),
+    radial-gradient(circle at 20% 20%, rgb(217 119 6 / 0.12), transparent 28%),
+    linear-gradient(180deg, #faf6ee 0%, var(--background) 42%, #efe8da 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top, rgb(89 130 184 / 0.18), transparent 28%),
+    radial-gradient(circle at 18% 18%, rgb(251 191 36 / 0.12), transparent 18%),
+    linear-gradient(180deg, #09111f 0%, var(--background) 42%, #0c1628 100%);
+}
+
+::selection {
+  background: rgb(16 35 63 / 0.14);
+  color: var(--foreground);
+}
+
+.dark ::selection {
+  background: rgb(141 183 255 / 0.24);
 }

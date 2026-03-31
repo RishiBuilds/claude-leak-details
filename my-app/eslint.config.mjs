@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Source material for the explorer, not part of the Next app codebase.
+    "claude/**",
   ]),
 ]);
 
