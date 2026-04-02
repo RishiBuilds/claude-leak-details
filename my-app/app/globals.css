@@ -6,40 +6,40 @@
   --font-inter: "Aptos", "Inter", "Segoe UI", "Helvetica Neue", sans-serif;
   --font-jetbrains-mono: "Cascadia Code", "JetBrains Mono", "SFMono-Regular", "Consolas", monospace;
 
-  --background: #f4efe5;
-  --foreground: #111827;
+  --background: #faf7f2;
+  --foreground: #0a0e1a;
 
-  --card: #fffdf8;
-  --card-foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #0a0e1a;
 
-  --primary: #10233f;
-  --primary-foreground: #f8fafc;
+  --primary: #0f172a;
+  --primary-foreground: #fafafa;
 
-  --muted: #ece4d3;
-  --muted-foreground: #6b7280;
+  --muted: #f1ede5;
+  --muted-foreground: #64748b;
 
-  --border: #d8cfbe;
-  --accent: #2f5d8a;
-  --accent-foreground: #f8fafc;
+  --border: #e2ddd0;
+  --accent: #14b8a6;
+  --accent-foreground: #ffffff;
 }
 
 :root.dark,
 [data-theme="dark"] {
-  --background: #0d1424;
-  --foreground: #e5ecf6;
+  --background: #0a0e1a;
+  --foreground: #f1f5f9;
 
-  --card: #111a2d;
-  --card-foreground: #e5ecf6;
+  --card: #0f1729;
+  --card-foreground: #f1f5f9;
 
-  --primary: #d7e3f5;
-  --primary-foreground: #0d1424;
+  --primary: #e0e7ff;
+  --primary-foreground: #0a0e1a;
 
-  --muted: #162136;
-  --muted-foreground: #9aa8bf;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
 
-  --border: #24324a;
-  --accent: #8db7ff;
-  --accent-foreground: #08111f;
+  --border: #1e293b;
+  --accent: #2dd4bf;
+  --accent-foreground: #0a0e1a;
 }
 
 @theme inline {
@@ -62,25 +62,53 @@
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top, rgb(47 93 138 / 0.15), transparent 32%),
-    radial-gradient(circle at 20% 20%, rgb(217 119 6 / 0.12), transparent 28%),
-    linear-gradient(180deg, #faf6ee 0%, var(--background) 42%, #efe8da 100%);
+    radial-gradient(circle at 30% 20%, rgb(20 184 166 / 0.08), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgb(6 182 212 / 0.06), transparent 35%),
+    linear-gradient(180deg, #ffffff 0%, var(--background) 50%, #f5f1ea 100%);
   color: var(--foreground);
   font-family: var(--font-sans);
 }
 
 .dark body {
   background:
-    radial-gradient(circle at top, rgb(89 130 184 / 0.18), transparent 28%),
-    radial-gradient(circle at 18% 18%, rgb(251 191 36 / 0.12), transparent 18%),
-    linear-gradient(180deg, #09111f 0%, var(--background) 42%, #0c1628 100%);
+    radial-gradient(circle at 30% 20%, rgb(45 212 191 / 0.12), transparent 35%),
+    radial-gradient(circle at 80% 60%, rgb(34 211 238 / 0.08), transparent 30%),
+    linear-gradient(180deg, #050810 0%, var(--background) 50%, #0f1420 100%);
 }
 
 ::selection {
-  background: rgb(16 35 63 / 0.14);
+  background: rgb(20 184 166 / 0.2);
   color: var(--foreground);
 }
 
 .dark ::selection {
-  background: rgb(141 183 255 / 0.24);
+  background: rgb(45 212 191 / 0.3);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
